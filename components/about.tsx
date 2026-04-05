@@ -1,0 +1,140 @@
+"use client"
+
+import { Code2, Palette, Zap, Users } from "lucide-react"
+import Image from "next/image"
+
+const skillGroups = [
+  {
+    title: "Frontend",
+    skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Backend y Datos",
+    skills: ["Node.js", "MongoDB", "Python", "Java"],
+  },
+  {
+    title: "Herramientas",
+    skills: ["Git", "Figma"],
+  },
+]
+
+const highlights = [
+  {
+    icon: Code2,
+    title: "Código Limpio",
+    description: "Escribo código mantenible y escalable siguiendo las mejores prácticas",
+  },
+  {
+    icon: Palette,
+    title: "UI/UX",
+    description: "Diseño interfaces intuitivas y visualmente atractivas",
+  },
+  {
+    icon: Zap,
+    title: "Rendimiento",
+    description: "Optimizo aplicaciones para máxima velocidad y eficiencia",
+  },
+  {
+    icon: Users,
+    title: "Colaboración",
+    description: "Trabajo efectivamente en equipos ágiles y multidisciplinarios",
+  },
+]
+
+export function About() {
+  return (
+    <section id="sobre-mi" className="py-24 relative">
+      <div className="w-full px-6 md:px-10 xl:px-16 2xl:px-24">
+        {/* Section Header */}
+        <div className="text-center mb-16">
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">Sobre Mí</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 text-balance">
+            Conoce más sobre mi trabajo
+          </h2>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="space-y-6">
+            <div className="relative">
+              {/* Decorative Element */}
+              <div className="absolute -left-4 top-0 w-1 h-full bg-primary/30 rounded-full" />
+              <div className="absolute -left-4 top-0 w-1 h-1/2 bg-primary rounded-full" />
+              
+              <div className="pl-6 space-y-4">
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Soy <span className="text-foreground font-medium">Michael David Lagos</span>, 
+                  <span className="text-foreground font-medium"> Ingeniero de Software Junior</span>.
+                  Actualmente me encuentro estudiando la carrera y fortaleciendo mis habilidades
+                  en el desarrollo de aplicaciones web modernas.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Mi enfoque combina diseño centrado en el usuario con código limpio y mantenible.
+                  Disfruto aprender continuamente y aplicar buenas prácticas en cada proyecto.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed">
+                  Me motiva seguir creciendo como profesional, participar en proyectos retadores
+                  y aportar soluciones útiles a problemas reales.
+                </p>
+              </div>
+            </div>
+
+            {/* Highlights Grid */}
+            <div className="grid sm:grid-cols-2 gap-4 mt-8">
+              {highlights.map((item) => (
+                <div
+                  key={item.title}
+                  className="p-4 rounded-xl border border-border/50 hover:border-primary/40 transition-colors duration-300 group"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                    <item.icon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column - Skills + Image */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-semibold text-foreground mb-6">Habilidades Técnicas</h3>
+            <div className="space-y-4">
+              {skillGroups.map((group) => (
+                <div
+                  key={group.title}
+                  className="p-1"
+                >
+                  <p className="text-sm font-semibold text-primary mb-3 tracking-wide uppercase">
+                    {group.title}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {group.skills.map((skill) => (
+                      <div
+                        key={skill}
+                        className="px-3 py-1.5 text-sm rounded-md border border-border/50 text-foreground"
+                      >
+                        {skill}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="w-full flex justify-center pt-2">
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 overflow-hidden rounded-2xl">
+                <Image
+                  src="/gato.png"
+                  alt="Foto de Michael David Lagos"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
