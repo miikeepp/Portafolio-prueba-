@@ -1,7 +1,6 @@
 "use client"
 
 import { Code2, Palette, Zap, Users } from "lucide-react"
-import Image from "next/image"
 
 const skillGroups = [
   {
@@ -120,14 +119,13 @@ export function About() {
               ))}
             </div>
 
-            <div className="w-full flex justify-center pt-2">
-              <div className="relative w-56 h-56 sm:w-64 sm:h-64 overflow-hidden rounded-2xl">
-                <Image
-                  src="/gato.png"
-                  alt="Foto de Michael David Lagos"
-                  fill
-                  className="object-cover"
-                  priority
+            <div className="w-full flex justify-center items-center pt-2">
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 overflow-hidden rounded-2xl flex items-center justify-center">
+                <img
+                  src="https://s35726.pcdn.co/wp-content/uploads/2022/01/nft.gif"
+                  alt="Nyan Cat"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
                 />
               </div>
             </div>
