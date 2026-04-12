@@ -29,6 +29,7 @@ const projects = [
     tags: ["React", "TypeScript", "Arquitectura"],
     github: "https://github.com/AlejandroBast/EstructuraPatrones-front",
     demo: "https://estructura-patrones-front.vercel.app/inicio",
+    image: "https://media.discordapp.net/attachments/1235371416237510667/1492703808143495208/image.png?ex=69dc4c40&is=69dafac0&hm=7b026703cae16e05d4165f99e92a1f96cb92ade19af86c98da82aa3b77b79eab&=&format=webp&quality=lossless&width=1598&height=800",
     featured: true,
   },
 ]
