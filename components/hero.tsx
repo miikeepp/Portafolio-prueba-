@@ -63,20 +63,28 @@ export function Hero() {
           </div>
 
           <div className="animate-in fade-in slide-in-from-bottom-6 duration-700 delay-500">
-            <div className="relative w-[260px] h-[260px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] mx-auto">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/30 via-accent/20 to-transparent blur-2xl" />
+            <div className="group relative w-[260px] h-[260px] md:w-[340px] md:h-[340px] lg:w-[400px] lg:h-[400px] mx-auto">
+              <div className="absolute -inset-7 rounded-full bg-gradient-to-br from-primary/30 via-accent/25 to-transparent blur-3xl" />
+              <div className="absolute -inset-3 rounded-full bg-[conic-gradient(from_210deg_at_50%_50%,rgba(255,108,122,0.10),rgba(255,108,122,0.70),rgba(255,108,122,0.10),rgba(255,108,122,0.55),rgba(255,108,122,0.10))] opacity-70" />
+              <div className="absolute -inset-2 rounded-full border border-primary/35 shadow-[0_0_24px_rgba(255,107,120,0.2)]" />
 
-              <div className="relative w-full h-full rounded-full overflow-hidden border border-primary/30 shadow-[0_0_60px_rgba(255,107,120,0.25)]">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary via-accent/85 to-primary/65 p-[3px] shadow-[0_22px_75px_rgba(255,96,113,0.38)]">
+                <div className="w-full h-full rounded-full border border-white/20" />
+              </div>
+
+              <div className="relative w-full h-full rounded-full overflow-hidden border border-primary/25 bg-background/30 backdrop-blur-sm shadow-[0_12px_48px_rgba(255,107,120,0.24)] transition-transform duration-500 group-hover:scale-[1.02]">
+                <div className="pointer-events-none absolute inset-3 rounded-full border border-white/20 z-10" />
+                <div className="pointer-events-none absolute inset-[18px] rounded-full border border-dashed border-white/10 z-10" />
                 <Image
                   src="/perfil.jpg"
                   alt="Imagen de presentación"
                   width={900}
                   height={900}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                   priority
                 />
 
-                <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_58%,rgba(0,0,0,0.38)_100%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_35%_16%,rgba(255,255,255,0.34),transparent_36%),radial-gradient(circle_at_78%_85%,rgba(255,107,120,0.2),transparent_28%),radial-gradient(circle,transparent_58%,rgba(0,0,0,0.42)_100%)]" />
               </div>
             </div>
           </div>

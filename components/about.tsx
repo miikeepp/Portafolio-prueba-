@@ -119,14 +119,21 @@ export function About() {
               ))}
             </div>
 
-            <div className="w-full flex justify-center items-center pt-2">
-              <div className="relative w-56 h-56 sm:w-64 sm:h-64 overflow-hidden rounded-2xl flex items-center justify-center">
-                <img
-                  src="https://s35726.pcdn.co/wp-content/uploads/2022/01/nft.gif"
-                  alt="Nyan Cat"
-                  className="w-full h-full object-cover object-center"
-                  loading="lazy"
-                />
+            <div className="w-full flex justify-center items-center pt-4">
+              <div className="group relative w-60 h-60 sm:w-72 sm:h-72">
+                <div className="absolute -inset-1 rounded-[1.75rem] bg-gradient-to-br from-primary/70 via-accent/60 to-primary/40 blur-sm opacity-75 group-hover:opacity-100 transition-opacity duration-300" />
+
+                <div className="relative w-full h-full rounded-[1.6rem] p-[2px] bg-gradient-to-br from-primary via-accent to-primary/50 shadow-[0_18px_45px_rgba(255,95,109,0.32)]">
+                  <div className="relative w-full h-full overflow-hidden rounded-[1.45rem] bg-background/70">
+                    <img
+                      src="https://s35726.pcdn.co/wp-content/uploads/2022/01/nft.gif"
+                      alt="Nyan Cat"
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.25),transparent_45%),linear-gradient(to_top,rgba(0,0,0,0.26),transparent_40%)]" />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
