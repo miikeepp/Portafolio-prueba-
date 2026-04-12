@@ -53,14 +53,13 @@ export function About() {
           </h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
           <div className="space-y-6">
-            <div className="relative">
+            <div className="relative max-w-3xl mx-auto">
               {/* Decorative Element */}
-              <div className="absolute -left-4 top-0 w-1 h-full bg-primary/30 rounded-full" />
-              <div className="absolute -left-4 top-0 w-1 h-1/2 bg-primary rounded-full" />
-              
-              <div className="pl-6 space-y-4">
+              <div className="absolute left-1/2 -translate-x-1/2 -top-4 w-16 h-1 bg-primary/40 rounded-full" />
+
+              <div className="pt-4 space-y-4 text-center">
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   Soy <span className="text-foreground font-medium">Michael David Lagos</span>, 
                   <span className="text-foreground font-medium"> Ingeniero de Software Junior</span>.
@@ -83,9 +82,9 @@ export function About() {
               {highlights.map((item) => (
                 <div
                   key={item.title}
-                  className="p-4 rounded-xl border border-border/50 hover:border-primary/40 transition-colors duration-300 group"
+                  className="p-4 rounded-xl border border-border/50 hover:border-primary/40 transition-colors duration-300 group text-center"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 mx-auto group-hover:bg-primary/20 transition-colors">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
@@ -96,7 +95,7 @@ export function About() {
           </div>
 
           {/* Right Column - Skills + Image */}
-          <div className="space-y-6">
+          <div className="space-y-6 text-center">
             <h3 className="text-xl font-semibold text-foreground mb-6">Habilidades Técnicas</h3>
             <div className="space-y-4">
               {skillGroups.map((group) => (
@@ -107,7 +106,7 @@ export function About() {
                   <p className="text-sm font-semibold text-primary mb-3 tracking-wide uppercase">
                     {group.title}
                   </p>
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 justify-center">
                     {group.skills.map((skill) => (
                       <div
                         key={skill}
