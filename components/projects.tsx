@@ -20,6 +20,7 @@ const projects = [
     tags: ["React", "JavaScript", "CSS"],
     github: "https://github.com/AlejandroBast/MentesCreativas",
     demo: "https://mentes-creativas.vercel.app/",
+    image: "https://media.discordapp.net/attachments/1235371416237510667/1492701095867318453/image.png?ex=69dc49ba&is=69daf83a&hm=bea2e835042adb36d6fcbf1f59799b430ddd6db56373fdb02d8212b7e9570dee&=&format=webp&quality=lossless&width=1741&height=800",
     featured: true,
   },
   {
