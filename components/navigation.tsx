@@ -1,7 +1,8 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Menu, X } from "lucide-react"
+import { Menu, Moon, Sun, X } from "lucide-react"
+import { useTheme } from "next-themes"
 
 const navLinks = [
   { href: "#inicio", label: "Inicio" },
@@ -14,6 +15,10 @@ const navLinks = [
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme, resolvedTheme, setTheme } = useTheme()
+
+  const isDark = (theme === "system" ? resolvedTheme : theme) === "dark"
 
   useEffect(() => {
     const originalOverflow = document.body.style.overflow
@@ -36,6 +41,14 @@ export function Navigation() {
     }
   }, [isOpen])
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const toggleTheme = () => {
+    setTheme(isDark ? "light" : "dark")
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="w-full px-6 md:px-10 xl:px-16 2xl:px-24 py-4">
@@ -55,16 +68,34 @@ export function Navigation() {
                 {link.label}
               </a>
             ))}
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label="Cambiar tema"
+              className="p-2 rounded-lg border border-border/60 bg-background/60 text-foreground hover:text-primary hover:border-primary/40 transition-colors"
+            >
+              {mounted && isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground p-2 rounded-lg border border-border/60 bg-background/30 backdrop-blur-sm"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="md:hidden flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label="Cambiar tema"
+              className="text-foreground p-2 rounded-lg border border-border/60 bg-background/30 backdrop-blur-sm"
+            >
+              {mounted && isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            </button>
+            <button
+              className="text-foreground p-2 rounded-lg border border-border/60 bg-background/30 backdrop-blur-sm"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation */}

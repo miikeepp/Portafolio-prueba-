@@ -4,24 +4,24 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: hsl(352, 30%, 11%);
-  --foreground: hsl(0, 20%, 95%);
-  --card: hsl(350, 28%, 15%);
-  --card-foreground: hsl(0, 20%, 95%);
-  --popover: hsl(350, 28%, 15%);
-  --popover-foreground: hsl(0, 20%, 95%);
+  --background: hsl(0, 0%, 98%);
+  --foreground: hsl(352, 30%, 14%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(352, 30%, 14%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(352, 30%, 14%);
   --primary: hsl(355, 78%, 64%);
-  --primary-foreground: hsl(352, 30%, 11%);
-  --secondary: hsl(350, 22%, 20%);
-  --secondary-foreground: hsl(0, 16%, 92%);
-  --muted: hsl(350, 18%, 18%);
-  --muted-foreground: hsl(0, 12%, 76%);
+  --primary-foreground: hsl(0, 0%, 98%);
+  --secondary: hsl(350, 30%, 94%);
+  --secondary-foreground: hsl(352, 26%, 18%);
+  --muted: hsl(350, 24%, 92%);
+  --muted-foreground: hsl(352, 14%, 40%);
   --accent: hsl(8, 74%, 60%);
-  --accent-foreground: hsl(352, 30%, 11%);
+  --accent-foreground: hsl(0, 0%, 98%);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: hsl(350, 20%, 28%);
-  --input: hsl(350, 20%, 22%);
+  --border: hsl(350, 18%, 82%);
+  --input: hsl(350, 20%, 88%);
   --ring: hsl(355, 78%, 64%);
   --chart-1: hsl(355, 78%, 64%);
   --chart-2: hsl(8, 74%, 60%);
@@ -29,13 +29,13 @@
   --chart-4: hsl(20, 68%, 64%);
   --chart-5: hsl(332, 58%, 56%);
   --radius: 0.625rem;
-  --sidebar: hsl(350, 26%, 14%);
-  --sidebar-foreground: hsl(0, 20%, 95%);
+  --sidebar: hsl(0, 0%, 99%);
+  --sidebar-foreground: hsl(352, 30%, 14%);
   --sidebar-primary: hsl(355, 78%, 64%);
-  --sidebar-primary-foreground: hsl(352, 30%, 11%);
-  --sidebar-accent: hsl(350, 22%, 20%);
-  --sidebar-accent-foreground: hsl(0, 16%, 92%);
-  --sidebar-border: hsl(350, 20%, 28%);
+  --sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --sidebar-accent: hsl(350, 30%, 94%);
+  --sidebar-accent-foreground: hsl(352, 26%, 18%);
+  --sidebar-border: hsl(350, 18%, 82%);
   --sidebar-ring: hsl(355, 78%, 64%);
 }
 
