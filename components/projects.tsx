@@ -11,6 +11,7 @@ const projects = [
     tags: ["React", "TypeScript", "Next.js"],
     github: "https://github.com/miikeepp/Para-Calculo",
     demo: "https://para-calculo.vercel.app/",
+    image: "https://para-calculo.vercel.app/favicon.svg",
     featured: true,
   },
   {
@@ -58,17 +59,30 @@ export function Projects() {
             >
               {/* Project Image */}
               <div className="relative overflow-hidden aspect-video bg-secondary">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/25 via-accent/20 to-secondary/50" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="px-4 py-2 rounded-xl bg-background/80 border border-border text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
-                  >
-                    Haz clic aquí
+                {project.image ? (
+                  <a href={project.demo} target="_blank" rel="noopener noreferrer" className="absolute inset-0">
+                    <img
+                      src={project.image}
+                      alt={`Vista previa de ${project.title}`}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/15 group-hover:bg-black/25 transition-colors" />
                   </a>
-                </div>
+                ) : (
+                  <>
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary/25 via-accent/20 to-secondary/50" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 rounded-xl bg-background/80 border border-border text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                      >
+                        Haz clic aquí
+                      </a>
+                    </div>
+                  </>
+                )}
                 <div className="absolute top-3 right-3 px-2 py-1 rounded-md bg-background/70 border border-border text-xs font-medium text-foreground">
                   0{index + 1}
                 </div>
