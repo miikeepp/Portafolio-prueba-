@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="inicio"
-      className="min-h-screen relative overflow-hidden flex items-center"
+      className="min-h-screen relative overflow-hidden flex items-center pt-24 sm:pt-28 lg:pt-0"
     >
       <div className="w-full px-6 md:px-10 xl:px-16 2xl:px-24 relative z-10">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
