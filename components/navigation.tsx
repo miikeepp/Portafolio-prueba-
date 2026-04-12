@@ -54,10 +54,7 @@ export function Navigation() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <nav className="w-full px-6 md:px-10 xl:px-16 2xl:px-24 py-4">
-        <div className="flex items-center justify-between">
-          <a href="#inicio" className="text-2xl font-bold text-primary">
-            {"<Dev />"}
-          </a>
+        <div className="flex items-center justify-end">
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
