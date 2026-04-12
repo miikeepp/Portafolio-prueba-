@@ -3,8 +3,11 @@
 import { ArrowDown, Github, Mail } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
+import { useLanguage } from "@/components/language-provider"
 
 export function Hero() {
+  const { language } = useLanguage()
+
   return (
     <section
       id="inicio"
@@ -14,25 +17,26 @@ export function Hero() {
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           <div className="text-center lg:text-left">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-5 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-150">
-              <span className="text-foreground">Hola, soy </span>
+              <span className="text-foreground">{language === "es" ? "Hola, soy " : "Hi, I'm "}</span>
               <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                 Michael David Lagos
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground mb-3 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
-              Ingeniero de Software Junior
+              {language === "es" ? "Ingeniero de Software Junior" : "Junior Software Engineer"}
             </p>
 
             <p className="text-lg text-muted-foreground/85 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed animate-in fade-in slide-in-from-bottom-6 duration-700 delay-450">
-              Actualmente me encuentro estudiando Ingeniería de Software y construyendo
-              soluciones web modernas con React, Next.js y TypeScript.
+              {language === "es"
+                ? "Actualmente me encuentro estudiando Ingeniería de Software y construyendo soluciones web modernas con React, Next.js y TypeScript."
+                : "I am currently studying Software Engineering and building modern web solutions with React, Next.js, and TypeScript."}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-10 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-600">
               <Button asChild size="lg" className="gap-2 px-8">
                 <a href="#proyectos">
-                  Ver Proyectos
+                  {language === "es" ? "Ver Proyectos" : "View Projects"}
                 </a>
               </Button>
             </div>
@@ -90,7 +94,7 @@ export function Hero() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <a href="#sobre-mi" className="text-muted-foreground hover:text-primary transition-colors">
           <ArrowDown className="w-6 h-6" />
-          <span className="sr-only">Scroll down</span>
+          <span className="sr-only">{language === "es" ? "Desplazarse hacia abajo" : "Scroll down"}</span>
         </a>
       </div>
     </section>

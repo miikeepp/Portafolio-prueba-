@@ -1,26 +1,7 @@
 "use client"
 
 import { Github, Twitter, Mail, Heart, ArrowUp } from "lucide-react"
-
-const footerLinks = [
-  {
-    title: "Navegación",
-    links: [
-      { label: "Inicio", href: "#inicio" },
-      { label: "Sobre Mí", href: "#sobre-mi" },
-      { label: "Proyectos", href: "#proyectos" },
-      { label: "Experiencia", href: "#experiencia" },
-    ],
-  },
-  {
-    title: "Contacto",
-    links: [
-      { label: "Testimonios", href: "#testimonios" },
-      { label: "Contacto", href: "#contacto" },
-      { label: "CV", href: "/cv.pdf" },
-    ],
-  },
-]
+import { useLanguage } from "@/components/language-provider"
 
 const socialLinks = [
   { icon: Github, href: "https://github.com/miikeepp", label: "GitHub" },
@@ -29,6 +10,28 @@ const socialLinks = [
 ]
 
 export function Footer() {
+  const { language } = useLanguage()
+
+  const footerLinks = [
+    {
+      title: language === "es" ? "Navegación" : "Navigation",
+      links: [
+        { label: language === "es" ? "Inicio" : "Home", href: "#inicio" },
+        { label: language === "es" ? "Sobre Mí" : "About", href: "#sobre-mi" },
+        { label: language === "es" ? "Proyectos" : "Projects", href: "#proyectos" },
+        { label: language === "es" ? "Experiencia" : "Experience", href: "#experiencia" },
+      ],
+    },
+    {
+      title: language === "es" ? "Contacto" : "Contact",
+      links: [
+        { label: language === "es" ? "Testimonios" : "Testimonials", href: "#testimonios" },
+        { label: language === "es" ? "Contacto" : "Contact", href: "#contacto" },
+        { label: "CV", href: "/cv.pdf" },
+      ],
+    },
+  ]
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" })
   }
@@ -43,8 +46,9 @@ export function Footer() {
               Michael David Lagos
             </a>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
-              Ingeniero de Software Junior en formación, enfocado en construir soluciones web
-              modernas y seguir aprendiendo cada día.
+              {language === "es"
+                ? "Ingeniero de Software Junior en formación, enfocado en construir soluciones web modernas y seguir aprendiendo cada día."
+                : "Junior Software Engineer in training, focused on building modern web solutions and learning every day."}
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((link) => (
@@ -85,14 +89,14 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12 pt-8 border-t border-border">
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {new Date().getFullYear()} Michael David Lagos. Hecho con{" "}
-            <Heart className="w-4 h-4 text-primary fill-primary" /> usando Next.js
+            © {new Date().getFullYear()} Michael David Lagos. {language === "es" ? "Hecho con" : "Made with"}{" "}
+            <Heart className="w-4 h-4 text-primary fill-primary" /> {language === "es" ? "usando" : "using"} Next.js
           </p>
           
           <button
             onClick={scrollToTop}
             className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all duration-300 group"
-            aria-label="Volver arriba"
+            aria-label={language === "es" ? "Volver arriba" : "Back to top"}
           >
             <ArrowUp className="w-5 h-5 group-hover:-translate-y-1 transition-transform" />
           </button>

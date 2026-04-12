@@ -3,11 +3,13 @@
 import { ExternalLink, Github, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { useLanguage } from "@/components/language-provider"
 
 const projects = [
   {
     title: "Para Cálculo",
-    description: "Proyecto académico enfocado en apoyar procesos de cálculo y práctica, desarrollado como parte de mi portafolio.",
+    descriptionEs: "Proyecto académico enfocado en apoyar procesos de cálculo y práctica, desarrollado como parte de mi portafolio.",
+    descriptionEn: "Academic project focused on supporting calculus and practice workflows, developed as part of my portfolio.",
     tags: ["React", "TypeScript", "Next.js"],
     github: "https://github.com/miikeepp/Para-Calculo",
     demo: "https://para-calculo.vercel.app/",
@@ -16,7 +18,8 @@ const projects = [
   },
   {
     title: "Mentes Creativas",
-    description: "Proyecto web enfocado en creatividad y colaboración, desarrollado como parte de mi proceso de formación en ingeniería de software.",
+    descriptionEs: "Proyecto web enfocado en creatividad y colaboración, desarrollado como parte de mi proceso de formación en ingeniería de software.",
+    descriptionEn: "Web project focused on creativity and collaboration, developed as part of my software engineering training.",
     tags: ["React", "JavaScript", "CSS"],
     github: "https://github.com/AlejandroBast/MentesCreativas",
     demo: "https://mentes-creativas.vercel.app/",
@@ -25,7 +28,8 @@ const projects = [
   },
   {
     title: "Tinck Cash",
-    description: "Frontend orientado a estructura y patrones de desarrollo, enfocado en buenas prácticas y organización del código.",
+    descriptionEs: "Frontend orientado a estructura y patrones de desarrollo, enfocado en buenas prácticas y organización del código.",
+    descriptionEn: "Frontend project focused on architecture and development patterns, with strong code organization and best practices.",
     tags: ["React", "TypeScript", "Arquitectura"],
     github: "https://github.com/AlejandroBast/EstructuraPatrones-front",
     demo: "https://estructura-patrones-front.vercel.app/inicio",
@@ -35,6 +39,7 @@ const projects = [
 ]
 
 export function Projects() {
+  const { language } = useLanguage()
   const featuredProjects = projects.filter((p) => p.featured)
 
   return (
@@ -42,13 +47,14 @@ export function Projects() {
       <div className="w-full px-6 md:px-10 xl:px-16 2xl:px-24">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Portafolio</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">{language === "es" ? "Portafolio" : "Portfolio"}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 text-balance">
-            Mis Proyectos Destacados
+            {language === "es" ? "Mis Proyectos Destacados" : "My Featured Projects"}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Una selección de proyectos en los que he trabajado, demostrando mis habilidades
-            en desarrollo frontend y backend.
+            {language === "es"
+              ? "Una selección de proyectos en los que he trabajado, demostrando mis habilidades en desarrollo frontend y backend."
+              : "A selection of projects I have worked on, showcasing my frontend and backend development skills."}
           </p>
         </div>
 
@@ -80,7 +86,7 @@ export function Projects() {
                         rel="noopener noreferrer"
                         className="px-4 py-2 rounded-xl bg-background/80 border border-border text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
                       >
-                        Haz clic aquí
+                        {language === "es" ? "Haz clic aquí" : "Click here"}
                       </a>
                     </div>
                   </>
@@ -98,7 +104,7 @@ export function Projects() {
                     className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <Github className="w-5 h-5" />
-                    <span className="sr-only">Ver en GitHub</span>
+                    <span className="sr-only">{language === "es" ? "Ver en GitHub" : "View on GitHub"}</span>
                   </a>
                   <a
                     href={project.demo}
@@ -107,7 +113,7 @@ export function Projects() {
                     className="p-3 rounded-full bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
                   >
                     <ExternalLink className="w-5 h-5" />
-                    <span className="sr-only">Ver Demo</span>
+                    <span className="sr-only">{language === "es" ? "Ver Demo" : "View Demo"}</span>
                   </a>
                 </div>
               </div>
@@ -117,7 +123,7 @@ export function Projects() {
                   {project.title}
                 </h3>
                 <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                  {project.description}
+                  {language === "es" ? project.descriptionEs : project.descriptionEn}
                 </p>
                 
                 {/* Tags */}
@@ -141,7 +147,7 @@ export function Projects() {
         <div className="text-center mt-12">
           <Button asChild variant="outline" size="lg" className="gap-2">
             <a href="https://github.com/miikeepp" target="_blank" rel="noopener noreferrer">
-              Ver todos en GitHub
+              {language === "es" ? "Ver todos en GitHub" : "View all on GitHub"}
               <ArrowRight className="w-4 h-4" />
             </a>
           </Button>

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { Quote, Star } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 
 type Testimonial = {
   name: string
@@ -45,6 +46,7 @@ const defaultTestimonials: Testimonial[] = [
 const STORAGE_KEY = "portfolio_testimonials"
 
 export function Testimonials() {
+  const { language } = useLanguage()
   const [testimonials, setTestimonials] = useState<Testimonial[]>(defaultTestimonials)
   const [showForm, setShowForm] = useState(false)
   const [name, setName] = useState("")
@@ -106,20 +108,21 @@ export function Testimonials() {
       <div className="w-full px-6 md:px-10 xl:px-16 2xl:px-24">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Testimonios</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">{language === "es" ? "Testimonios" : "Testimonials"}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 text-balance">
-            Lo que dicen mis clientes
+            {language === "es" ? "Lo que dicen mis clientes" : "What my clients say"}
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            He tenido el privilegio de trabajar con increíbles clientes y equipos. 
-            Aquí está lo que tienen que decir sobre nuestra colaboración.
+            {language === "es"
+              ? "He tenido el privilegio de trabajar con increíbles clientes y equipos. Aquí está lo que tienen que decir sobre nuestra colaboración."
+              : "I have had the privilege of working with amazing clients and teams. Here is what they say about our collaboration."}
           </p>
           <button
             type="button"
             onClick={() => setShowForm((prev) => !prev)}
             className="mt-6 inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
           >
-            {showForm ? "Cancelar" : "Agregar testimonio"}
+            {showForm ? (language === "es" ? "Cancelar" : "Cancel") : language === "es" ? "Agregar testimonio" : "Add testimonial"}
           </button>
         </div>
 
@@ -133,7 +136,7 @@ export function Testimonials() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Nombre"
+                placeholder={language === "es" ? "Nombre" : "Name"}
                 className="h-10 rounded-md border border-input bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
                 required
               />
@@ -141,7 +144,7 @@ export function Testimonials() {
                 type="text"
                 value={role}
                 onChange={(e) => setRole(e.target.value)}
-                placeholder="Cargo / Empresa"
+                placeholder={language === "es" ? "Cargo / Empresa" : "Role / Company"}
                 className="h-10 rounded-md border border-input bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
                 required
               />
@@ -150,14 +153,14 @@ export function Testimonials() {
             <textarea
               value={content}
               onChange={(e) => setContent(e.target.value)}
-              placeholder="Escribe el testimonio"
+              placeholder={language === "es" ? "Escribe el testimonio" : "Write the testimonial"}
               className="mt-4 min-h-28 w-full rounded-md border border-input bg-background px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-primary/40"
               required
             />
 
             <div className="mt-4 flex flex-wrap items-center gap-4">
               <label htmlFor="rating" className="text-sm text-muted-foreground">
-                Calificación:
+                {language === "es" ? "Calificación:" : "Rating:"}
               </label>
               <select
                 id="rating"
@@ -165,18 +168,18 @@ export function Testimonials() {
                 onChange={(e) => setRating(Number(e.target.value))}
                 className="h-10 rounded-md border border-input bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-primary/40"
               >
-                <option value={5}>5 estrellas</option>
-                <option value={4}>4 estrellas</option>
-                <option value={3}>3 estrellas</option>
-                <option value={2}>2 estrellas</option>
-                <option value={1}>1 estrella</option>
+                <option value={5}>{language === "es" ? "5 estrellas" : "5 stars"}</option>
+                <option value={4}>{language === "es" ? "4 estrellas" : "4 stars"}</option>
+                <option value={3}>{language === "es" ? "3 estrellas" : "3 stars"}</option>
+                <option value={2}>{language === "es" ? "2 estrellas" : "2 stars"}</option>
+                <option value={1}>{language === "es" ? "1 estrella" : "1 star"}</option>
               </select>
 
               <button
                 type="submit"
                 className="ml-auto inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity"
               >
-                Guardar testimonio
+                {language === "es" ? "Guardar testimonio" : "Save testimonial"}
               </button>
             </div>
           </form>

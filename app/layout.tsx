@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ThemeProvider } from '@/components/theme-provider'
+import { LanguageProvider } from '@/components/language-provider'
 import './globals.css'
 
 const inter = Inter({ 
@@ -38,7 +39,7 @@ export default function RootLayout({
     <html lang="es" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {children}
+          <LanguageProvider>{children}</LanguageProvider>
         </ThemeProvider>
         <Analytics />
       </body>

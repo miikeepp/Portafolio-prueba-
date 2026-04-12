@@ -1,31 +1,42 @@
 "use client"
 
 import { GraduationCap, Calendar } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 
 const education = [
   {
-    title: "Técnico en Sistemas",
-    institution: "Institución Técnico Industrial de Pasto",
-    period: "Finalizado",
-    description: "Formación técnica en sistemas y fundamentos de desarrollo de software.",
+    titleEs: "Técnico en Sistemas",
+    titleEn: "Systems Technician",
+    institutionEs: "Institución Técnico Industrial de Pasto",
+    institutionEn: "Institución Técnico Industrial de Pasto",
+    periodEs: "Finalizado",
+    periodEn: "Completed",
+    descriptionEs: "Formación técnica en sistemas y fundamentos de desarrollo de software.",
+    descriptionEn: "Technical training in systems and software development fundamentals.",
   },
   {
-    title: "Ingeniería de Software",
-    institution: "Universidad Cooperativa de Colombia",
-    period: "En curso",
-    description: "Actualmente cursando la carrera, con enfoque en desarrollo de software y buenas prácticas.",
+    titleEs: "Ingeniería de Software",
+    titleEn: "Software Engineering",
+    institutionEs: "Universidad Cooperativa de Colombia",
+    institutionEn: "Universidad Cooperativa de Colombia",
+    periodEs: "En curso",
+    periodEn: "In progress",
+    descriptionEs: "Actualmente cursando la carrera, con enfoque en desarrollo de software y buenas prácticas.",
+    descriptionEn: "Currently pursuing the degree, focused on software development and best practices.",
   },
 ]
 
 export function Experience() {
+  const { language } = useLanguage()
+
   return (
     <section id="experiencia" className="py-24">
       <div className="w-full px-6 md:px-10 xl:px-16 2xl:px-24">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Trayectoria</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">{language === "es" ? "Trayectoria" : "Journey"}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 text-balance">
-            Educación
+            {language === "es" ? "Educación" : "Education"}
           </h2>
         </div>
 
@@ -35,7 +46,7 @@ export function Experience() {
               <div className="p-2 rounded-lg bg-primary/10">
                 <GraduationCap className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground">Educación</h3>
+              <h3 className="text-xl font-semibold text-foreground">{language === "es" ? "Educación" : "Education"}</h3>
             </div>
 
             <div className="space-y-6">
@@ -51,19 +62,19 @@ export function Experience() {
 
                   <div className="p-5 rounded-xl border border-border/50 hover:border-primary/40 transition-colors duration-300">
                     <h4 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                      {edu.title}
+                      {language === "es" ? edu.titleEs : edu.titleEn}
                     </h4>
                     <p className="text-sm text-muted-foreground mt-1">
-                      {edu.institution}
+                      {language === "es" ? edu.institutionEs : edu.institutionEn}
                     </p>
                     
                     <div className="flex items-center gap-1 text-sm text-muted-foreground mt-2 mb-3">
                       <Calendar className="w-3.5 h-3.5" />
-                      {edu.period}
+                      {language === "es" ? edu.periodEs : edu.periodEn}
                     </div>
 
                     <p className="text-sm text-muted-foreground">
-                      {edu.description}
+                      {language === "es" ? edu.descriptionEs : edu.descriptionEn}
                     </p>
                   </div>
                 </div>

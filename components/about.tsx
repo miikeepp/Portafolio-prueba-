@@ -1,18 +1,22 @@
 "use client"
 
 import { Code2, Palette, Zap, Users } from "lucide-react"
+import { useLanguage } from "@/components/language-provider"
 
 const skillGroups = [
   {
-    title: "Frontend",
+    titleEs: "Frontend",
+    titleEn: "Frontend",
     skills: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    title: "Backend y Datos",
+    titleEs: "Backend y Datos",
+    titleEn: "Backend & Data",
     skills: ["Node.js", "MongoDB", "Python", "Java"],
   },
   {
-    title: "Herramientas",
+    titleEs: "Herramientas",
+    titleEn: "Tools",
     skills: ["Git", "Figma"],
   },
 ]
@@ -20,35 +24,45 @@ const skillGroups = [
 const highlights = [
   {
     icon: Code2,
-    title: "Código Limpio",
-    description: "Escribo código mantenible y escalable siguiendo las mejores prácticas",
+    titleEs: "Código Limpio",
+    titleEn: "Clean Code",
+    descriptionEs: "Escribo código mantenible y escalable siguiendo las mejores prácticas",
+    descriptionEn: "I write maintainable, scalable code following best practices",
   },
   {
     icon: Palette,
-    title: "UI/UX",
-    description: "Diseño interfaces intuitivas y visualmente atractivas",
+    titleEs: "UI/UX",
+    titleEn: "UI/UX",
+    descriptionEs: "Diseño interfaces intuitivas y visualmente atractivas",
+    descriptionEn: "I design intuitive and visually appealing interfaces",
   },
   {
     icon: Zap,
-    title: "Rendimiento",
-    description: "Optimizo aplicaciones para máxima velocidad y eficiencia",
+    titleEs: "Rendimiento",
+    titleEn: "Performance",
+    descriptionEs: "Optimizo aplicaciones para máxima velocidad y eficiencia",
+    descriptionEn: "I optimize applications for maximum speed and efficiency",
   },
   {
     icon: Users,
-    title: "Colaboración",
-    description: "Trabajo efectivamente en equipos ágiles y multidisciplinarios",
+    titleEs: "Colaboración",
+    titleEn: "Collaboration",
+    descriptionEs: "Trabajo efectivamente en equipos ágiles y multidisciplinarios",
+    descriptionEn: "I work effectively in agile, multidisciplinary teams",
   },
 ]
 
 export function About() {
+  const { language } = useLanguage()
+
   return (
     <section id="sobre-mi" className="py-24 relative">
       <div className="w-full px-6 md:px-10 xl:px-16 2xl:px-24">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <span className="text-primary text-sm font-medium tracking-wider uppercase">Sobre Mí</span>
+          <span className="text-primary text-sm font-medium tracking-wider uppercase">{language === "es" ? "Sobre Mí" : "About Me"}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-2 text-balance">
-            Conoce más sobre mi trabajo
+            {language === "es" ? "Conoce más sobre mi trabajo" : "Learn more about my work"}
           </h2>
         </div>
 
@@ -60,18 +74,27 @@ export function About() {
 
               <div className="pt-4 space-y-4 text-center">
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Soy <span className="text-foreground font-medium">Michael David Lagos</span>, 
-                  <span className="text-foreground font-medium"> Ingeniero de Software Junior</span>.
-                  Actualmente me encuentro estudiando la carrera y fortaleciendo mis habilidades
-                  en el desarrollo de aplicaciones web modernas.
+                  {language === "es" ? (
+                    <>
+                      Soy <span className="text-foreground font-medium">Michael David Lagos</span>,
+                      <span className="text-foreground font-medium"> Ingeniero de Software Junior</span>. Actualmente me encuentro estudiando la carrera y fortaleciendo mis habilidades en el desarrollo de aplicaciones web modernas.
+                    </>
+                  ) : (
+                    <>
+                      I am <span className="text-foreground font-medium">Michael David Lagos</span>,
+                      <span className="text-foreground font-medium"> a Junior Software Engineer</span>. I am currently studying and strengthening my skills in modern web application development.
+                    </>
+                  )}
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Mi enfoque combina diseño centrado en el usuario con código limpio y mantenible.
-                  Disfruto aprender continuamente y aplicar buenas prácticas en cada proyecto.
+                  {language === "es"
+                    ? "Mi enfoque combina diseño centrado en el usuario con código limpio y mantenible. Disfruto aprender continuamente y aplicar buenas prácticas en cada proyecto."
+                    : "My approach combines user-centered design with clean, maintainable code. I enjoy learning continuously and applying best practices in every project."}
                 </p>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Me motiva seguir creciendo como profesional, participar en proyectos retadores
-                  y aportar soluciones útiles a problemas reales.
+                  {language === "es"
+                    ? "Me motiva seguir creciendo como profesional, participar en proyectos retadores y aportar soluciones útiles a problemas reales."
+                    : "I am motivated to keep growing as a professional, take on challenging projects, and deliver useful solutions to real-world problems."}
                 </p>
               </div>
             </div>
@@ -80,14 +103,14 @@ export function About() {
             <div className="grid sm:grid-cols-2 gap-4 mt-8">
               {highlights.map((item) => (
                 <div
-                  key={item.title}
+                  key={item.titleEs}
                   className="p-4 rounded-xl border border-border/50 hover:border-primary/40 transition-colors duration-300 group text-center"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 mx-auto group-hover:bg-primary/20 transition-colors">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="font-semibold text-foreground mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <h3 className="font-semibold text-foreground mb-1">{language === "es" ? item.titleEs : item.titleEn}</h3>
+                  <p className="text-sm text-muted-foreground">{language === "es" ? item.descriptionEs : item.descriptionEn}</p>
                 </div>
               ))}
             </div>
@@ -95,15 +118,15 @@ export function About() {
 
           {/* Right Column - Skills + Image */}
           <div className="space-y-6 text-center">
-            <h3 className="text-xl font-semibold text-foreground mb-6">Habilidades Técnicas</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-6">{language === "es" ? "Habilidades Técnicas" : "Technical Skills"}</h3>
             <div className="space-y-4">
               {skillGroups.map((group) => (
                 <div
-                  key={group.title}
+                  key={group.titleEs}
                   className="p-1"
                 >
                   <p className="text-sm font-semibold text-primary mb-3 tracking-wide uppercase">
-                    {group.title}
+                    {language === "es" ? group.titleEs : group.titleEn}
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {group.skills.map((skill) => (
