@@ -47,8 +47,8 @@ export function Footer() {
             </a>
             <p className="text-muted-foreground max-w-sm leading-relaxed">
               {language === "es"
-                ? "Ingeniero de Software Junior en formación, enfocado en construir soluciones web modernas y seguir aprendiendo cada día."
-                : "Junior Software Engineer in training, focused on building modern web solutions and learning every day."}
+                ? "Desarrollador Full Stack enfocado en construir soluciones web modernas, escalables y orientadas a resultados."
+                : "Full Stack Developer focused on building modern, scalable, and results-driven web solutions."}
             </p>
             <div className="flex items-center gap-3">
               {socialLinks.map((link) => (

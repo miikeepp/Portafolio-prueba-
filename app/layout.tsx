@@ -17,7 +17,7 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: 'Portfolio | Michael David Lagos',
-  description: 'Portafolio profesional de Michael David Lagos, Ingeniero de Software Junior en formación.',
+  description: 'Portafolio profesional de Michael David Lagos, Full Stack Developer enfocado en construir soluciones web modernas.',
   generator: 'v0.app',
   icons: {
     icon: [

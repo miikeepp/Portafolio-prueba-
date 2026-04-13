@@ -77,12 +77,12 @@ export function About() {
                   {language === "es" ? (
                     <>
                       Soy <span className="text-foreground font-medium">Michael David Lagos</span>,
-                      <span className="text-foreground font-medium"> Ingeniero de Software Junior</span>. Actualmente me encuentro estudiando la carrera y fortaleciendo mis habilidades en el desarrollo de aplicaciones web modernas.
+                      <span className="text-foreground font-medium"> Desarrollador Full Stack</span>. Actualmente construyo aplicaciones web modernas y sigo fortaleciendo mis habilidades en frontend y backend.
                     </>
                   ) : (
                     <>
                       I am <span className="text-foreground font-medium">Michael David Lagos</span>,
-                      <span className="text-foreground font-medium"> a Junior Software Engineer</span>. I am currently studying and strengthening my skills in modern web application development.
+                      <span className="text-foreground font-medium"> a Full Stack Developer</span>. I build modern web applications and continuously strengthen my frontend and backend skills.
                     </>
                   )}
                 </p>

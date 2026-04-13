@@ -24,7 +24,7 @@ export function Hero() {
             </h1>
 
             <p className="text-xl md:text-2xl text-muted-foreground mb-3 animate-in fade-in slide-in-from-bottom-6 duration-700 delay-300">
-              {language === "es" ? "Ingeniero de Software Junior" : "Junior Software Engineer"}
+              {language === "es" ? "Desarrollador Full Stack" : "Full Stack Developer"}
             </p>
 
             <p className="text-lg text-muted-foreground/85 max-w-2xl mx-auto lg:mx-0 mb-8 leading-relaxed animate-in fade-in slide-in-from-bottom-6 duration-700 delay-450">
